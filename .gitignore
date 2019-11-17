@@ -1,0 +1,7 @@
+.idea
+
+clickhouse/db_files
+mariadb/db_files
+mongodb/db_files
+mysql/db_files
+postgres/db_files

@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+
+  mariadb:
+    image: mariadb:latest
+    container_name: app_db_mariadb
+    working_dir: /application/
+    volumes:
+      - ./db_files:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=8888
+      - MYSQL_DATABASE=db_app
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=8888
+    ports:
+      - "33064:3306"
+    networks:
+      - net
+
+networks:
+  net:

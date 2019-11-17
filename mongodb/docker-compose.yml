@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+
+  mysql:
+    image: mongo:latest
+    container_name: app_db_mongo
+    working_dir: /application/
+    volumes:
+      - ./db_files:/data/db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=8888
+      - MONGODB_USERNAME=user
+      - MONGODB_PASSWORD=8888
+      - MONGODB_DATABASE=app_db
+      - MONGO_INITDB_DATABASE=app_db
+    ports:
+      - "27017:27017"
+    networks:
+      - net
+
+networks:
+    net:

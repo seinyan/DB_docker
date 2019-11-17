@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+
+  postgres:
+    image: postgres:10.6
+    container_name: app_db_postgres
+    working_dir: /application/
+    volumes:
+      - ./db_files:/var/lib/postgresql
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db_app
+    ports:
+      - "54321:5432"
+    networks:
+      - net
+
+networks:
+    net:
